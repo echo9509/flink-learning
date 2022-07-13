@@ -7,7 +7,7 @@
 7. Trigger
 8. Time和WaterMark
 
-[GitHub源码](https://github.com/shysh95/flink-learning)
+[GitHub源码](https://github.com/echo9509/flink-learning)
 
 **DataStream**
 
@@ -32,7 +32,7 @@ KeyedStream是在普通的DataStream基础上，我们通过一定的规则将�
 - maxBy：作用等同于max，但是他又一个额外的参数，如果该参数设置为true，当比较的的值相等的时候取第1个到来的元素
 - reduce：对于每一个分区(key)，将当前的数据和最后一次reduce得到的元素进行组合然后输出新的元素
 
-KeyedStream的示例代码见[GitHub源码](https://github.com/shysh95/flink-learning) cn.sh.flink.learning.daemon.KeyedStreamDaemon
+KeyedStream的示例代码见[GitHub源码](https://github.com/echo9509/flink-learning) cn.sh.flink.learning.daemon.KeyedStreamDaemon
 
 **ConnectedStreams**
 
@@ -153,8 +153,8 @@ public abstract class Trigger<T, W extends Window> implements Serializable {
 对于按照EventTime进行处理的应用程序，由于网络延迟或者其他原因，虽然EventTime是递增的，但是到达Flink的顺序确是不一定的，为了应对乱序问题我们引入了WaterMark。
 
 当我们的WindowAssigner是基于EventTime的时候，我们需要设置WaterMark，通过assignTimestampsAndWatermarks方法我们可以产生WaterMark这个特殊事件，用来告诉Flink
-某个时间戳以前的数据我都收到了，由于我们的WaterMark也只是一个估计值，因此及时设置了WaterMark，也有可能收到之前的数据(这些数据称为late elements)，因此Flink中提供
-了两个方法来处理这些数据：
+某个时间戳以前的数据我都收到了，由于我们的WaterMark也只是一个估计值，因此即使设置了WaterMark，也有可能收到之前的数据(这些数据称为late elements)，Flink中可以使用
+以下方法来处理这些数据：
 
 - allowedLateness：用于指定允许的延迟的最大时间，设置该时间以后，迟来的数据也可以触发窗口
 - sideOutputLateData()：将迟到的数据发送到旁路输出流
