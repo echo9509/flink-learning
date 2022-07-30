@@ -28,6 +28,28 @@
       <artifactId>flink-clients_2.12</artifactId>
       <version>1.14.5</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-table-planner_2.12</artifactId>
+      <version>1.14.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-table</artifactId>
+      <version>1.14.5</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.flink</groupId>
+      <artifactId>flink-csv</artifactId>
+      <version>1.14.5</version>
+<!--      <scope>test</scope>-->
+    </dependency>
+
   </dependencies>
 
   <build>
