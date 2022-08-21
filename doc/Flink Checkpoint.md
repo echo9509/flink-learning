@@ -52,7 +52,7 @@ Flink内置了三种Statebackend，MemoryStateBackend和FsStateBackend运行时�
 
 ![image.png](https://tva1.sinaimg.cn/large/69ad3470gy1h5ec69p427j211j0dc7az.jpg)
 
-5。 同样的，Sink节点在完成自己的Checkpoint以后，会通知Checkpoint Coordinator备份数据的地址(state handle)。
+5. 同样的，Sink节点在完成自己的Checkpoint以后，会通知Checkpoint Coordinator备份数据的地址(state handle)。
 
 ![image.png](https://tva1.sinaimg.cn/large/69ad3470gy1h5ec7wm7o5j20ya0bqdm3.jpg)
 
@@ -76,4 +76,3 @@ Flink为了实现EXACTLY_ONCE，需要通过一个input buffer将在对齐阶段
 2. 与上一次成功的checkpoint本地sst文件列表做对比，将不在其中的文件上传到外部存储上
 3. 所有文件都会重命名防止冲突
 4. 包含了所有新旧文件的state handle返回给checkpoint coordinator
-
